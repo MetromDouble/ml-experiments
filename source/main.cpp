@@ -7,8 +7,8 @@
 
 using namespace std;
 
-#define MNIST_DATA_IMAGES_LOCATION "mnist/dataset/train-images.idx3-ubyte"
-#define MNIST_DATA_LABELS_LOCATION "mnist/dataset/train-labels.idx1-ubyte"
+#define MNIST_DATA_IMAGES_LOCATION "./source/mnist/dataset/train-images.idx3-ubyte"
+#define MNIST_DATA_LABELS_LOCATION "./source/mnist/dataset/train-labels.idx1-ubyte"
 
 int main(int argc, char* argv[]) {
   // srand(time(nullptr));
@@ -19,30 +19,14 @@ int main(int argc, char* argv[]) {
   {
     for(int j=0; j < 28; ++j)
     {
-      switch ((int)ceil((int)ar[argc > 1 ? atoi(argv[1]) : 0][(28 * i) + j] / 64))
-      {
-        case 3:
-        {
-          cout << "\xdb";
-          break;
-        }
-        case 2:
-        {
-          cout << "\xb2";
-          break;
-        }
-        case 1:
-        {
-          cout << "\xb0";
-          break;
-        }
-        default:
-        {
-          cout << " ";
-        }
+      cout << (int)ar[argc > 1 ? atoi(argv[1]) : 0][(28 * i) + j];
+      if (j != 27) {
+        cout << ",";
       }
     }
-    cout << endl;
+    if (i != 27) {
+      cout << "|";
+    }
   }
 
   return 0;
