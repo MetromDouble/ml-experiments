@@ -1,0 +1,30 @@
+{
+  "name": "ml-experiments",
+  "version": "1.0.0",
+  "description": "Simple neural net with web frontend interface",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MetromDouble/ml-experiments.git"
+  },
+  "author": "MetromDouble",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MetromDouble/ml-experiments/issues"
+  },
+  "homepage": "https://github.com/MetromDouble/ml-experiments#readme",
+  "dependencies": {
+    "bluebird": "^3.5.1",
+    "cors": "^2.8.4",
+    "koa": "^2.5.0",
+    "koa-body": "^2.5.0",
+    "koa-router": "^7.4.0",
+    "koa-session": "^5.8.1",
+    "koa-static": "^4.0.2",
+    "request": "^2.85.0"
+  }
+}
