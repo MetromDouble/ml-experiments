@@ -1,8 +1,9 @@
 #include <iostream>
 #include <cmath>
+#include <cstddef>
 #include <cstdlib>
 #include <ctime>
-#include "mnist/simple.hpp"
+#include "./mnist/simple.hpp"
 
 using namespace std;
 
@@ -10,7 +11,7 @@ using namespace std;
 #define MNIST_DATA_LABELS_LOCATION "mnist/dataset/train-labels.idx1-ubyte"
 
 int main(int argc, char* argv[]) {
-  srand(time(nullptr));
+  // srand(time(nullptr));
 
   unsigned char** ar;
   ar = read_mnist_images(MNIST_DATA_IMAGES_LOCATION, 10000, 784);

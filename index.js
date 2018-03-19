@@ -1,14 +1,26 @@
 global.Promise = require('bluebird');
+const util = require('util');
 const Koa = require('koa');
 const Router = require('koa-router');
+const exec = util.promisify(require('child_process').exec);
 
 const app = new Koa();
 const router = new Router();
 
-router.get('/', (ctx, next) => {
+async function runNet() {
+  const { stdout, stderr } = await exec('./compiled');
+  console.log('stdout:', stdout);
+  console.log('stderr:', stderr);
+
+  return stdout;
+}
+
+router.get('/', async (ctx, next) => {
+  const result = await runNet();
+
   ctx.body = {
     status: 'success',
-    data: 'Hello World'
+    data: result
   };
   next();
 });
