@@ -13,9 +13,10 @@ function initCanvas() {
 }
 
 async function draw() {
+  let imageNumber = document.getElementById('image-number').value;
   ctx.clearRect(0, 0, cw, ch);
 
-  const data = await getData();
+  const data = await getData(imageNumber);
 
   const normalizedData = data.split('|').map(item => item.split(','));
 
@@ -25,8 +26,8 @@ async function draw() {
   }));
 };
 
-async function getData() {
-  let response = await fetch('/net');
+async function getData(number) {
+  let response = await fetch(`/net${number ? '?number=' + number : ''}`);
   const { data } = await response.json();
 
   return data;

@@ -5,14 +5,15 @@
 
 using namespace std;
 
+float getActivation(float actPotential) {
+  return fmax(0.0, actPotential); /* ReLU */
+};
+
 class Neuron {
   private:
     float bias;
     vector<float> w;
 
-    float act(float act_potential) {
-      return fmax(0.0, act_potential); /* ReLU */
-    };
     void w_init() {
       for(int i = 0; i < w.size(); i++) {
         w.assign(i, (float)rand() / RAND_MAX);

@@ -8,8 +8,8 @@ const exec = util.promisify(require('child_process').exec);
 const app = new Koa();
 const router = new Router();
 
-async function runNet() {
-  const { stdout, stderr } = await exec('compiled.exe');
+async function runNet(number) {
+  const { stdout, stderr } = await exec(`compiled.exe ${number || 0}`);
   console.log('stdout:', stdout);
   console.log('stderr:', stderr);
 
@@ -18,7 +18,8 @@ async function runNet() {
 
 router.get('/net', async (ctx, next) => {
   try {
-    const result = await runNet();
+    const { number } = ctx.request.query;
+    const result = await runNet(number);
 
     ctx.body = {
       status: 'success',

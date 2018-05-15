@@ -1,4 +1,5 @@
 *.exe
+example-py-net.txt
 # Logs
 logs
 *.log

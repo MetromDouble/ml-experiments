@@ -11,7 +11,7 @@ using namespace std;
 #define MNIST_DATA_LABELS_LOCATION "./source/mnist/dataset/train-labels.idx1-ubyte"
 
 int main(int argc, char* argv[]) {
-  // srand(time(nullptr));
+  srand(time(NULL));
 
   unsigned char** ar;
   ar = read_mnist_images(MNIST_DATA_IMAGES_LOCATION, 10000, 784);
